@@ -88,6 +88,25 @@ body {
   animation: fade-in 300ms ease both;
 }
 
+.slide-number {
+  position: absolute;
+  top: clamp(28px, 4vw, 42px);
+  right: clamp(32px, 5vw, 52px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(122, 247, 247, 0.75);
+  border: 1px solid rgba(122, 247, 247, 0.25);
+  background: rgba(8, 20, 20, 0.55);
+  backdrop-filter: blur(12px);
+}
+
 @keyframes fade-in {
   from {
     opacity: 0;

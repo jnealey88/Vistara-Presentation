@@ -15,10 +15,13 @@
   let pendingVideo = null;
 
   function renderSlide(slide, index) {
+    const slideNumber = renderSlideNumber(index);
+
     switch (slide.type) {
       case 'title':
         return `
           <section class="slide" data-index="${index}">
+            ${slideNumber}
             <div>
               ${renderTagline(slide.tagline)}
               <h1>${slide.title}</h1>
@@ -30,6 +33,7 @@
       case 'standard':
         return `
           <section class="slide" data-index="${index}">
+            ${slideNumber}
             <div>
               ${renderTagline(slide.tagline)}
               <h2>${slide.title}</h2>
@@ -41,6 +45,7 @@
       case 'list':
         return `
           <section class="slide" data-index="${index}">
+            ${slideNumber}
             <div>
               ${renderTagline(slide.tagline)}
               <h2>${slide.title}</h2>
@@ -53,6 +58,7 @@
       case 'timeline':
         return `
           <section class="slide" data-index="${index}">
+            ${slideNumber}
             <div>
               ${renderTagline(slide.tagline)}
               <h2>${slide.title}</h2>
@@ -64,6 +70,7 @@
       case 'cards':
         return `
           <section class="slide" data-index="${index}">
+            ${slideNumber}
             <div>
               ${renderTagline(slide.tagline)}
               <h2>${slide.title}</h2>
@@ -78,6 +85,7 @@
       case 'demo':
         return `
           <section class="slide" data-index="${index}">
+            ${slideNumber}
             <div class="demo-flow">
               <div class="demo-column">
                 ${renderTagline(slide.tagline)}
@@ -91,6 +99,7 @@
       case 'cta':
         return `
           <section class="slide cta-slide" data-index="${index}">
+            ${slideNumber}
             ${renderCtaLayout(slide)}
           </section>
         `;
@@ -101,6 +110,12 @@
 
   function renderTagline(tagline) {
     return tagline ? `<div class="tagline">${tagline}</div>` : '';
+  }
+
+  function renderSlideNumber(index) {
+    const total = slidesData.length;
+    const current = String(index + 1).padStart(2, '0');
+    return `<div class="slide-number" aria-label="Slide ${index + 1} of ${total}">${current}</div>`;
   }
 
   function renderSubtitle(text) {
