@@ -164,8 +164,8 @@
   }
 
   function renderCtaLayout(slide) {
-    const linkMarkup = slide.link && slide.link.href
-      ? `<a class="cta-link" href="${slide.link.href}" target="_blank" rel="noopener noreferrer">${slide.link.label || slide.link.href}</a>`
+    const linkMarkup = slide.linkText
+      ? `<p class="cta-note">${slide.linkText}</p>`
       : '';
 
     const content = `

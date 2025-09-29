@@ -356,21 +356,13 @@ li {
   padding-left: 22px;
 }
 
-.cta-link {
+.cta-note {
   align-self: flex-start;
   display: inline;
   font-size: clamp(0.82rem, 1.2vw, 0.95rem);
   letter-spacing: 0.02em;
   text-transform: none;
   color: rgba(122, 247, 247, 0.85);
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 6px;
-}
-
-.cta-link:hover,
-.cta-link:focus {
-  color: rgba(255, 255, 255, 0.94);
 }
 
 .cta-media.media-block {
@@ -568,7 +560,7 @@ body.script-page {
   padding-left: 22px;
 }
 
-.script-entry .cta-link {
+.script-entry .cta-note {
   margin-top: 4px;
 }
 
