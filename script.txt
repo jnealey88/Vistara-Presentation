@@ -1,0 +1,41 @@
+Slide 1 – AI for agencies: save time, grow revenue
+Script: Imagine managing 40, maybe 400 WordPress sites. It’s Monday morning. Two red alerts hit your dashboard and a new client signed last night. How do you keep up? With Airo at GoDaddy, you handle it in minutes.
+
+Slide 2 – Automate what drains your time.
+Script: Here’s the frame for today: focus on automating the work that eats up your time, and save your judgment for where it matters most.
+
+Slide 3 – The promise for the next 10 minutes
+Script: First we’ll tame the red alerts, then draft the new client’s site, and finally show how GoDaddy backs your growth. Along the way you’ll collect three rules any agency can use when pairing AI with human judgment.
+
+Slide 4 – Monday morning at your agency
+Script: Before we dive in, a quick pulse-check. Who here manages more than 10 sites? 50? 100? Perfect—what you’re about to see is built for exactly that scale.
+
+Slide 5 – Your control tower
+Script: Here’s what the Hub makes possible: one place to keep tabs on every site, see issues before they escalate, and standardize the fixes. When I can pull every alert into a single view and apply updates in batches, my team’s time moves from firefighting to advising clients—which is exactly where AI should support us.
+
+Slide 6 – Hub agent in action
+Script: Now it’s showtime. “Show me all sites with errors.” “Fix the critical issues.” “Run a security scan on the portfolio.” In one view I see performance, security, and health, and I translate that into language clients actually understand.
+
+Slide 7 – Break the content bottleneck
+Script: Content is still the number-one blocker—83.5% of agencies say so. Airo Site Designer cracks that bottleneck by turning raw discovery notes into structure, copy, and Gutenberg blocks in minutes. While the agents automate the busywork, your team stays on the strategic, client-facing tasks. Let me show you how that plays out in the interface.
+
+Slide 8 – Design with prompts
+Script: Let me show you what that feels like live. I’ll “make fine tuned edits,” “add full pages,” and then finish in WordPress with typography, imagery, and layout decisions that belong to the brand. The benefit is speed with control—AI drafts, humans finish.
+
+Slide 9 – Growth, backed by GoDaddy
+Script: Tools matter, but growth matters more. Our Partner Agency Program sends leads straight to you, gives you a success manager, and puts priority support on speed dial. Picture your busiest week: the lead arrives, support solves the blocker, you win the project—weekend intact.
+
+Slide 10 – One workflow, three wins
+Script: Hub Agent resolves the alerts, Site Designer builds the draft, and the Partner Program fuels the win. That’s the end-to-end story.
+
+Slide 11 – Specialized agents that fill the gaps
+Script: Beyond those core moves, Airo has specialists—blog creator, logo generator, market research, site optimizer. When you nail a workflow, turn it into a playbook so the whole team hits repeat.
+
+Slide 12 – Audit your week
+Script: Take this back with you. Map your daily and weekly tasks. Circle the repeats—that’s AI territory. Highlight the judgment calls—that stays with you and your team.
+
+Slide 13 – How agencies win with AI
+Script: The three rules are simple: AI owns the repetitive work, humans keep the judgment, and playbooks scale your wins. You just saw each one in action.
+
+Slide 14 – Handle Monday mornings without burning out
+Script: Use Hub Agent to cut hours to minutes, Site Designer to deliver drafts faster, and the Partner Agency Program to grow. That’s how you survive Monday with 400 sites and still have energy left.
