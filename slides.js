@@ -72,7 +72,7 @@ const slides = [
     media: {
       type: 'video',
       src: 'hub-sites-agent.mp4',
-      caption: 'Hub Agent walk-through (Airo dashboard demo)'
+      caption: 'Hub Agent walk-through'
     },
   },
   {
