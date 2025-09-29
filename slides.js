@@ -111,12 +111,12 @@ const slides = [
   },
   {
     type: 'cards',
-    tagline: 'Partner agency program',
+    tagline: 'Agency Partner Program',
     title: 'Growth, backed by GoDaddy',
     media: {
       type: 'image',
       src: 'godaddy_agency_program_qr.png',
-      caption: 'Scan to explore the Partner Agency Program'
+      caption: 'Scan to explore the Agency Partner Program'
     },
     cards: [
       {
@@ -191,13 +191,13 @@ const slides = [
     bullets: [
       'Use Hub Agent to cut hours to minutes',
       'Use Site Designer to deliver drafts faster',
-      "Join GoDaddy's Partner Agency Program to grow"
+      "Join GoDaddy's Agency Partner Program to grow"
     ],
     linkText: 'https://bit.ly/gdvistara to visit this presentation online.',
     media: {
       type: 'image',
       src: 'godaddy_agency_program_qr.png',
-      caption: 'Scan to join the Partner Agency Program'
+      caption: 'Scan to join the Agency Partner Program'
     }
   }
 ];
