@@ -193,6 +193,11 @@ const slides = [
       'Use Site Designer to deliver drafts faster',
       "Join GoDaddy's Partner Agency Program to grow"
     ],
+    media: {
+      type: 'image',
+      src: 'godaddy_agency_program_qr.png',
+      caption: 'Scan to join the Partner Agency Program'
+    }
   }
 ];
 

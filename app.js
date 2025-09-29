@@ -11,6 +11,8 @@
   const slideElements = Array.from(deck.querySelectorAll('.slide'));
   const progressBar = document.querySelector('#progress span');
   let activeIndex = 0;
+  let activeVideo = null;
+  let pendingVideo = null;
 
   function renderSlide(slide, index) {
     switch (slide.type) {
@@ -88,12 +90,8 @@
         `;
       case 'cta':
         return `
-          <section class="slide" data-index="${index}">
-            <div>
-              ${renderTagline(slide.tagline)}
-              <h2>${slide.title}</h2>
-              ${renderList(slide.bullets)}
-            </div>
+          <section class="slide cta-slide" data-index="${index}">
+            ${renderCtaLayout(slide)}
           </section>
         `;
       default:
@@ -165,6 +163,29 @@
     return `<div class="card">${headline}${body}${list}${prompts}</div>`;
   }
 
+  function renderCtaLayout(slide) {
+    const content = `
+      <div class="cta-content">
+        ${renderTagline(slide.tagline)}
+        <h2>${slide.title}</h2>
+        ${renderList(slide.bullets)}
+      </div>
+    `;
+
+    const media = renderMedia(slide.media, null, 'cta-media');
+
+    if (!media) {
+      return content;
+    }
+
+    return `
+      <div class="cta-layout">
+        ${content}
+        ${media}
+      </div>
+    `;
+  }
+
   function renderMedia(media, placeholderText, className) {
     const classes = ['media-block'];
     if (className) {
@@ -214,8 +235,19 @@
       return;
     }
 
-    slideElements[activeIndex].classList.remove('active');
-    slideElements[clamped].classList.add('active');
+    const currentSlide = slideElements[activeIndex];
+    const nextSlide = slideElements[clamped];
+
+    if (currentSlide) {
+      resetSlideMedia(currentSlide);
+      currentSlide.classList.remove('active');
+    }
+
+    if (nextSlide) {
+      nextSlide.classList.add('active');
+      prepareSlideVideo(nextSlide);
+    }
+
     activeIndex = clamped;
     updateProgress();
   }
@@ -229,7 +261,22 @@
     progressBar.style.width = `${ratio}%`;
   }
 
+  function startPendingVideo() {
+    if (!pendingVideo) {
+      return false;
+    }
+
+    const video = pendingVideo;
+    pendingVideo = null;
+    startVideoPlayback(video);
+    return true;
+  }
+
   function nextSlide() {
+    if (startPendingVideo()) {
+      return;
+    }
+
     showSlide(activeIndex + 1);
   }
 
@@ -239,6 +286,100 @@
 
   function goTo(index) {
     showSlide(index);
+  }
+
+  function exitFullscreen() {
+    if (document.fullscreenElement && document.exitFullscreen) {
+      document.exitFullscreen().catch(() => {});
+    }
+  }
+
+  function resetSlideMedia(slide) {
+    if (!slide) {
+      return;
+    }
+
+    const videos = slide.querySelectorAll('video');
+    videos.forEach(video => {
+      video.pause();
+      try {
+        video.currentTime = 0;
+      } catch (error) {
+        // Ignore seek errors while resetting playback position.
+      }
+    });
+
+    if (document.fullscreenElement && slide.contains(document.fullscreenElement)) {
+      exitFullscreen();
+    }
+
+    if (pendingVideo && slide.contains(pendingVideo)) {
+      pendingVideo = null;
+    }
+
+    if (activeVideo && slide.contains(activeVideo)) {
+      activeVideo = null;
+    }
+  }
+
+  function prepareSlideVideo(slide) {
+    if (!slide) {
+      exitFullscreen();
+      activeVideo = null;
+      pendingVideo = null;
+      return;
+    }
+
+    const video = slide.querySelector('video');
+    if (!video) {
+      exitFullscreen();
+      activeVideo = null;
+      pendingVideo = null;
+      return;
+    }
+
+    pendingVideo = video;
+    activeVideo = video;
+
+    if (typeof video.pause === 'function') {
+      video.pause();
+    }
+
+    if (typeof video.currentTime === 'number') {
+      try {
+        video.currentTime = 0;
+      } catch (error) {
+        // Swallow errors when resetting playback.
+      }
+    }
+  }
+
+  function startVideoPlayback(video) {
+    if (!video) {
+      return;
+    }
+
+    activeVideo = video;
+
+    if (typeof video.currentTime === 'number') {
+      try {
+        video.currentTime = 0;
+      } catch (error) {
+        // Ignore seek errors triggered by resetting playback.
+      }
+    }
+
+    if (typeof video.requestFullscreen === 'function') {
+      const request = video.requestFullscreen();
+      if (request && typeof request.catch === 'function') {
+        request.catch(() => {});
+      }
+    }
+
+    const playPromise = video.play();
+    if (playPromise && typeof playPromise.catch === 'function') {
+      playPromise.catch(() => {});
+    }
   }
 
   document.addEventListener('keydown', event => {
@@ -267,6 +408,7 @@
 
   if (slideElements[0]) {
     slideElements[0].classList.add('active');
+    prepareSlideVideo(slideElements[0]);
   }
 
   updateProgress();
