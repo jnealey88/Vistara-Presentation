@@ -193,6 +193,10 @@ const slides = [
       'Use Site Designer to deliver drafts faster',
       "Join GoDaddy's Partner Agency Program to grow"
     ],
+    link: {
+      href: 'https://bit.ly/gdvistara',
+      label: 'https://bit.ly/gdvistara to visit this presentation online.'
+    },
     media: {
       type: 'image',
       src: 'godaddy_agency_program_qr.png',
